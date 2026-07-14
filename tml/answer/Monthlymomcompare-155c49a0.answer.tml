@@ -1,0 +1,89 @@
+guid: 155c49a0-f40e-4473-a1ef-be56412f05bf
+obj_id: Monthlymomcompare-155c49a0
+answer:
+  name: Monthly mom compare
+  tables:
+  - id: (Sample) Retail - Apparel
+    name: (Sample) Retail - Apparel
+    fqn: cd252e5c-b552-49a8-821d-3eadaa049cca
+    obj_id: SampleRetail-Apparel-cd252e5c
+  formulas:
+  - id: formula_period
+    name: period
+    expr: "if ( [date] >= [formula_Start date] and [date] <= [formula_End date] ) then [formula_Start date] else if ( [date] >= add_months ( [formula_Start date] , - 1 ) and [date] <= add_months ( [formula_End date] , - 1 ) ) then add_months ( [formula_Start date] , - 1 ) else null "
+    was_auto_generated: false
+  - id: formula_mom compare
+    name: mom compare
+    expr: "if ( [date] <= today ( ) and [date] >= start_of_month ( today ( ) ) ) then today ( ) else if ( [date] <= add_months ( today ( ) , - 1 ) and [date] >= add_months ( start_of_month ( today ( ) ) , - 1 ) ) then add_months ( today ( ) , - 1 ) else null"
+    was_auto_generated: false
+  - id: formula_test
+    name: test
+    expr: "if ( [date] >= add_months ( [formula_Start date] , - 1 ) and [date] <= add_months ( [formula_End date] , - 1 ) ) then add_months ( [formula_Start date] , - 1 ) else null"
+    was_auto_generated: false
+  - id: formula_End date
+    name: End date
+    expr: "if ( [Reporting period] in { 'thisyear' , 'thisweek' , 'thismonth' , 'thisday' , 'thisquarter' } ) then today ( ) else [Custom reporting End]"
+    was_auto_generated: false
+  - id: formula_Start date
+    name: Start date
+    expr: "if ( [Reporting period] = 'thisyear' ) then start_of_year ( today ( ) ) else if ( [Reporting period] = 'thisweek' ) then start_of_week ( today ( ) ) else if ( [Reporting period] = 'thisquarter' ) then start_of_quarter ( today ( ) ) else if ( [Reporting period] = 'thismonth' ) then start_of_month ( today ( ) ) else [Custom reporting Start]"
+    was_auto_generated: false
+  search_query: "[sales] [formula_period] [formula_period].monthly"
+  answer_columns:
+  - name: Month(period)
+  - name: Total sales
+  table:
+    table_columns:
+    - column_id: Month(period)
+      show_headline: false
+    - column_id: Total sales
+      show_headline: false
+    ordered_column_ids:
+    - Month(period)
+    - Total sales
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: KPI
+    chart_columns:
+    - column_id: Month(period)
+    - column_id: Total sales
+    axis_configs:
+    - x:
+      - Month(period)
+      "y":
+      - Total sales
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"gridLines\": {},\"responsiveLayoutPreference\": \"USER_PREFERRED_ON\",\"chartSpecific\": {\"customProps\": \"{\\\"showLabel\\\":true,\\\"showComparison\\\":true,\\\"showSparkline\\\":false,\\\"showAnomalies\\\":true,\\\"showAnalyseChangeCta\\\":true,\\\"showBounds\\\":true,\\\"customCompare\\\":\\\"PREV_AVAILABLE\\\"}\",\"dataFieldArea\": \"column\"}},\"columnProperties\": [{\"columnId\": \"Measure names\",\"columnProperty\": {}},{\"columnId\": \"Measure values\",\"columnProperty\": {}},{\"columnId\": \"Total sales\",\"columnProperty\": {}},{\"columnId\": \"Month(period)\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"b1e04167-637b-4a6c-bfe9-7c5928e81481\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total sales\"],\"isOpposite\": false}},{\"id\": \"1d96829d-34b0-467c-af03-3e16bb27d9b5\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Month(period)\"]}}]}"
+  display_mode: CHART_MODE
+  parameters:
+  - id: 71a3cd34-3d93-43ed-82ea-1dd35cb4ab17
+    name: Custom reporting End
+    data_type: DATE
+    default_value: 09/05/2025
+    description: ""
+  - id: 4374858b-6c19-420e-bd47-eed4c24d3b4c
+    name: Custom reporting Start
+    data_type: DATE
+    default_value: 09/04/2025
+    description: ""
+  - id: d8ec1124-9366-47f1-a5f4-54ee6c31947a
+    name: Reporting period
+    data_type: CHAR
+    default_value: thismonth
+    list_config:
+      list_choice:
+      - value: thisyear
+        display_name: This Year
+      - value: thismonth
+        display_name: This Month
+      - value: thisquarter
+        display_name: This Quarter
+      - value: thisweek
+        display_name: This Week
+      - value: thisday
+        display_name: This Day
+      - value: Custom
+        display_name: Custom
+    description: ""
+  dynamic_name: Monthly mom compare

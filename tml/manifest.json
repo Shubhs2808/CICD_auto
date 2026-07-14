@@ -1,9 +1,23 @@
 {
-  "Testing-c4b9e083": {
-    "guid": "c4b9e083-fd2e-4345-aa03-26d95aa36205",
-    "name": "Testing",
-    "obj_id": "Testing-c4b9e083",
-    "path": "tml/liveboard/Testing-c4b9e083.liveboard.tml",
-    "type": "LIVEBOARD"
+  "INVENTORY-566dab69": {
+    "guid": "566dab69-aeee-4b4b-a5b3-4f527268b48e",
+    "name": "INVENTORY",
+    "obj_id": "INVENTORY-566dab69",
+    "path": "tml/logical_table/INVENTORY-566dab69.logical_table.tml",
+    "type": "LOGICAL_TABLE"
+  },
+  "Monthlymomcompare-155c49a0": {
+    "guid": "155c49a0-f40e-4473-a1ef-be56412f05bf",
+    "name": "Monthly mom compare",
+    "obj_id": "Monthlymomcompare-155c49a0",
+    "path": "tml/answer/Monthlymomcompare-155c49a0.answer.tml",
+    "type": "ANSWER"
+  },
+  "PRODUCT-1395d46e": {
+    "guid": "1395d46e-4927-43f9-b5c3-2bdf37ade02d",
+    "name": "PRODUCT",
+    "obj_id": "PRODUCT-1395d46e",
+    "path": "tml/logical_table/PRODUCT-1395d46e.logical_table.tml",
+    "type": "LOGICAL_TABLE"
   }
 }
